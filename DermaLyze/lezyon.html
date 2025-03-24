@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DermaLyze</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DermaLyze</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  font-style: oblique;
+  background-color: white;
+}
+
+    body {
+  margin: 0;
+  padding: 0;
+  font-style: oblique;
+  background-color: white;
+}
+
+nav {
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 5px rgb(39, 39, 79) solid;
+  background-color: rgb(30, 30, 64);
+  position: relative;
+}
+
+.resim {
+  width: 40px;
+  height: 40px;
+}
+
+.icon-div {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.Baslık {
+  font-size: 20px;
+  margin-left: 10px;
+  color: white;
+  
+}
+.baş-link{
+    color: white;
+    text-decoration: none;
+}
+
+.ul-liste {
+  font-size: 20px;
+  padding: 0;
+}
+
+
+.a-list {
+  margin-right: 20px;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.a-list::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: width 0.3s ease;
+}
+
+.a-list:hover {
+  color: #ffd700;
+  transform: scale(1.1);
+}
+
+.a-list:hover::after {
+  width: 100%;
+}
+
+.ana-sayfa {
+  position: relative;
+  border-radius: 10px;
+}
+
+.resim-home {
+  width: 100%;
+  height: 400px;
+  border-bottom: 3px solid rgb(30, 30, 64);
+  object-fit: cover;
+}
+
+.giriş {
+  position: absolute;
+  top: 20%;
+  left: 5%;
+  font-size: 20px;
+  color: rgb(30, 30, 64);
+}
+
+.asistan-buton,
+.ic-button {
+  font-size: 20px;
+  color: white;
+  background-color: rgb(20, 20, 65);
+  border-radius: 50px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.asistan-buton:hover,
+.ic-button:hover {
+  background-color: rgb(45, 45, 100);
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.ana-div {}
+
+.ana-ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.ana-img1,
+.ana-img2,
+.ana-img3,
+.ana-img4 {
+  width: 100%;
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border-radius: 150px;
+  margin-bottom: 20px;
+  border: 2px solid #000;
+  display: flex;
+  align-items: center;
+}
+
+.ana-img1 {
+  background-image: url("Resim/360_F_619411419_TI1j5q8ItTz6VTFxFtSUm0m8n5wYSWNy.jpg");
+}
+
+.ana-img2 {
+  background-image: url("Resim/360_F_283884186_YBKqPDaRmGJ0eh3nu6ZOcq6yvvO8NzLm.jpg");
+}
+
+.ana-img3 {
+  background-image: url("Resim/DERMATOLOJI-banner.jpg");
+}
+
+.ana-img4 {
+  background-image: url("Resim/depositphotos_254341448-stock-photo-face-beautiful-girl-scnanning-grid.jpg");
+}
+
+.ic-div {
+  margin-left: 40px;
+  color: rgb(30, 30, 64);
+  width: 500px;
+}
+
+footer {
+  background-color: rgb(20, 20, 65);
+  height: auto;
+  margin: 0;
+  padding: 10px 0;
+  text-align: center;
+  color: white;
+  bottom: 0;
+}
+
+.footer-img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 28px;
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+/* === Mobil Uyum ve Menü === */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+  }
+
+  .sağ-navbar {
+  display: none;
+  width: 100%;
+  background-color: rgb(30, 30, 64); 
+  position: absolute;
+  top: 100%; 
+  left: 0;
+  z-index: 999;
+}
+
+  .sağ-navbar.show {
+    display: block;
+    margin-top: 10px;
+  }
+
+  .ul-liste {
+    font-size: 16px;
+    padding-left: 0;
+  }
+
+  .ul-liste li {
+    list-style: none;
+  }
+
+  .a-list {
+    display: block;
+    margin: 8px 0;
+    padding-left: 10px;
+  }
+
+  .giriş {
+    font-size: 16px;
+    top: 10%;
+  }
+
+  .resim-home {
+    height: 250px;
+  }
+
+  .ana-img1,
+  .ana-img2,
+  .ana-img3,
+  .ana-img4 {
+    flex-direction: column;
+    height: auto;
+    border-radius: 30px;
+    padding: 20px 0;
+  }
+
+  .ic-div {
+    margin-left: 0;
+    width: 90%;
+    text-align: center;
+  }
+
+  .ic-button {
+    font-size: 18px;
+  }
+  
+}
+
+    
+  </style>
+</head>
+<body>
+<nav>
+  <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<div class="icon-div">
+    <img class="resim "src=Resim\6025105.png alt="">
+    <a href="home.html" class="baş-link"><Strong class="Baslık">DermaLyze</Strong></a>
+</div>
+<div class="sağ-navbar">
+    <ul class="ul-liste">
+        <li class="liste">
+            <a href="asistan.html"class="a-list">Sağlık Asistanım</a>
+            <a href="lezyon.html"class="a-list">Lezyon Analizi</a>
+            <a href="cilt.html"class="a-list">Cilt Analizi</a>
+            <a href="deri.html"class="a-list">Deri Analizi</a>
+            <a href=""class="a-list">Hakkımızda</a>          
+        </li>
+
+    </ul>
+</div>
+</nav>
+
+<div class="ana-sayfa">
+    <img class="resim-home"src="Resim/360_F_283884186_YBKqPDaRmGJ0eh3nu6ZOcq6yvvO8NzLm.jpg" alt="">
+</div>
+    
+ <div class="giriş">
+ <h1> LEZYON ANALİZİ</h1>
+ <h3>Şüpheli cilt lezyonlarını yapay zekâ ile inceleyin.</h3>
+ <H3>Erken teşhis için görselinizi yükleyin, analiz başlasın.</H3>
+
+    <br>
+</div>
+
+
+
+<footer>
+<img class="footer-img" src="Resim\LinkedIn_icon.svg.png" alt="">
+<img class="footer-img" src="Resim\github-icon-2.svg" alt="">
+<h3>@ 2025 Copyrgiht: Yunus Güçlü </h3>
+</footer>
+<script>
+  function toggleMenu() {
+    const menu = document.querySelector(".sağ-navbar");
+    menu.classList.toggle("show");
+  }
+</script>
+
+</body>
+
+</html>
