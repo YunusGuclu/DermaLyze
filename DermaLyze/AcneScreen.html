@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DermaLyze – Cilt Analizi</title>
+  <title>DermaLyze – Akne Analizi</title>
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
@@ -28,27 +28,34 @@
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none"
              viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16" />
+                d="M4 6h16M4 12h16M4 18h16"/>
         </svg>
       </button>
     </div>
     <div id="mobile-menu" class="hidden bg-white md:hidden">
-      <a href="AssistantScreen.html" class="block px-6 py-3 border-b text-gray-600 hover:text-indigo-600">Sağlık Asistanım</a>
-      <a href="AnalysisScreen.html" class="block px-6 py-3 border-b text-gray-600 hover:text-indigo-600">Cilt Analizi</a>
-      <a href="SkinScreen.html" class="block px-6 py-3 text-gray-600 hover:text-indigo-600">Deri Analizi</a>
+      <a href="AssistantScreen.html"
+         class="block px-6 py-3 border-b text-gray-600 hover:text-indigo-600">Sağlık Asistanım</a>
+      <a href="AnalysisScreen.html"
+         class="block px-6 py-3 border-b text-gray-600 hover:text-indigo-600">Cilt Analizi</a>
+      <a href="SkinScreen.html"
+         class="block px-6 py-3 text-gray-600 hover:text-indigo-600">Deri Analizi</a>
     </div>
   </header>
 
   <!-- Hero Section -->
   <section class="relative bg-cover bg-center h-screen"
-           style="background-image:url('Resim/depositphotos_254341448-stock-photo-face-beautiful-girl-scnanning-grid.jpg');">
+           style="background-image:url('Resim/akne.png');">
     <div class="absolute inset-0 bg-black opacity-40"></div>
     <div class="container mx-auto h-full flex flex-col justify-center items-start text-white relative pl-12 md:pl-24">
-      <h1 class="text-5xl font-bold mb-4">Cilt Analizi</h1>
+      <h1 class="text-5xl font-bold mb-4">Akne Analizi</h1>
       <p class="text-xl mb-6 max-w-lg">
-        Cildinizden şüpheleniyor musunuz? AI ile cildinizdeki potansiyel riskleri tespit edin ve genel sağlık durumunuz hakkında bilgi edinin.
+        Cildinizde beyaz noktalar, siyah noktalar, küçük kırmızı hassas şişlikler,
+        uçlarında irinli sivilceler, cilt altındaki büyük, sert ve ağrılı nodüller
+        veya irin dolu kistlerden herhangi biri var mı?<br>
+        Hemen akne tipinizi keşfedin ve genel bilgiler alın.
       </p>
-      <a href="#upload" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg shadow-lg transition transform hover:scale-105">
+      <a href="#upload"
+         class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-3 rounded-lg shadow-lg transition transform hover:scale-105">
         Analize Başla
       </a>
     </div>
@@ -59,11 +66,10 @@
     <div class="max-w-md mx-auto bg-white rounded-xl shadow-lg p-8">
       <div class="text-center mb-6">
         <h2 class="text-2xl font-semibold text-gray-800">Görsel Yükleyin</h2>
-        <p class="text-gray-600">Cilt görüntünüzü seçin, analiz edelim.</p>
+        <p class="text-gray-600">Akne görüntünüzü seçip analiz edelim.</p>
       </div>
       <div class="space-y-4">
         <input type="file" id="imageInput" accept="image/*" class="hidden">
-        <!-- Görsel Seç butonunu full width yaptık -->
         <label for="imageInput"
                class="block w-full text-center bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-full transition">
           📤 Görsel Seç
@@ -71,7 +77,6 @@
         <img id="preview"
              class="mx-auto w-full max-h-60 object-contain rounded-md border border-gray-200 hidden"
              src="#" alt="Önizleme">
-        <!-- Analiz Et butonu da full width -->
         <button id="btnAnalyse"
                 class="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-3 rounded-full shadow-lg disabled:opacity-50 transition"
                 disabled>
@@ -85,7 +90,7 @@
   <!-- Warning Text -->
   <div class="container mx-auto px-6">
     <p class="text-center text-sm text-red-600 italic">
-      Uyarı: Sonuçlar yapay zekânın tahmin başarısına göre belirlenir. Sadece bilgilendirme amaçlıdır; kesin teşhis için doktora danışınız.
+      Uyarı: Tahminler AI modeline dayanır; kesin teşhis için lütfen uzmanınıza danışın.
     </p>
   </div>
 
@@ -106,16 +111,14 @@
 
   <script>
     // Mobil menü toggle
-    document.getElementById('menu-btn').addEventListener('click', () => {
-      document.getElementById('mobile-menu').classList.toggle('hidden');
-    });
-
+    document.getElementById('menu-btn')
+      .addEventListener('click', () =>
+        document.getElementById('mobile-menu').classList.toggle('hidden'));
     // Görsel önizleme & analiz butonu
     const input = document.getElementById('imageInput');
     const preview = document.getElementById('preview');
     const btn = document.getElementById('btnAnalyse');
     const resultDiv = document.getElementById('result');
-
     input.addEventListener('change', () => {
       const file = input.files[0];
       if (!file) return;
@@ -128,43 +131,36 @@
       };
       reader.readAsDataURL(file);
     });
-
     btn.addEventListener('click', () => {
       if (!input.files.length) {
-        return alert('Lütfen önce bir resim seçin!');
+        alert('Lütfen önce bir resim seçin!');
+        return;
       }
       const fd = new FormData();
       fd.append('image', input.files[0]);
-      fetch('/predict', { method: 'POST', body: fd })
+      fetch('/predict_acne', { method: 'POST', body: fd })
         .then(res => res.json())
         .then(data => {
           resultDiv.innerHTML = '';
           if (data.error) {
             resultDiv.innerHTML = `<p class="text-red-600">${data.error}</p>`;
           } else {
-            data.forEach(i => {
-              resultDiv.innerHTML +=
-                `<p><strong>${i.label}</strong>: ${(i.score * 100).toFixed(1)}%</p>`;
-            });
+            resultDiv.innerHTML += `
+              <h3 class="text-lg font-semibold">${data.label} (${(data.score*100).toFixed(1)}%)</h3>
+              <p class="font-medium">${data.diagnosis}</p>
+              <p>${data.info}</p>
+            `;
           }
         })
         .catch(err => {
           console.error(err);
-          resultDiv.innerHTML = '<p class="text-red-600">Sunucuya ulaşırken hata oluştu.</p>';
+          resultDiv.innerHTML =
+            '<p class="text-red-600">Sunucuya ulaşırken hata oluştu.</p>';
         });
     });
   </script>
 
-  <!-- Chatbase temiz sohbet başlatma ve embed -->
-  <script>
-    // Chatbase proxy setup (eğer daha önce ekli değilse)
-    window.chatbase = window.chatbase || ((...args) => {
-      window.chatbase.q = window.chatbase.q || [];
-      window.chatbase.q.push(args);
-    });
-    // Her sayfa yüklemede yeni bir oturum başlat
-    window.chatbase("identify", { user_id: Date.now().toString() });
-  </script>
+  <!-- ✅ Chatbase Chatbot Script -->
   <script>
     (function(){
       if(!window.chatbase || window.chatbase("getState") !== "initialized") {
@@ -180,15 +176,19 @@
         });
       }
       const onLoad = function() {
-        const s = document.createElement("script");
-        s.src = "https://www.chatbase.co/embed.min.js";
-        s.id = "92Xly1zD9f8TD7Qvwsi9O"; // Bot ID'nizi girin
-        s.domain = "www.chatbase.co";
-        document.body.appendChild(s);
+        const script = document.createElement("script");
+        script.src = "https://www.chatbase.co/embed.min.js";
+        script.id = "92Xly1zD9f8TD7Qvwsi9O";  // Bot ID’nizi girin
+        script.domain = "www.chatbase.co";
+        document.body.appendChild(script);
       };
-      if (document.readyState === "complete") onLoad();
-      else window.addEventListener("load", onLoad);
+      if (document.readyState === "complete") {
+        onLoad();
+      } else {
+        window.addEventListener("load", onLoad);
+      }
     })();
   </script>
+
 </body>
 </html>
